@@ -2674,3 +2674,14 @@ select.campo:disabled,
   margin-left: 16px;
   margin-right: 16px;
 }
+
+.lambe {
+  margin: 14px 0;
+}
+
+.lambe-opcoes {
+  display: grid;
+  gap: 10px;
+  margin-top: 10px;
+  max-width: 420px;
+}

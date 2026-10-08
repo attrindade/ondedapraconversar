@@ -1,0 +1,17 @@
+/* Fontes do lambe (carregam só quando alguém pede o download). */
+
+@font-face {
+  font-family: "Special Gothic Condensed One";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url("../../node_modules/@fontsource/special-gothic-condensed-one/files/special-gothic-condensed-one-latin-400-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Manrope";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url("../../node_modules/@fontsource/manrope/files/manrope-latin-700-normal.woff2") format("woff2");
+}

@@ -22,6 +22,7 @@ import { fichaPorChave } from "../fichas";
 import { marcar, minhasRegioes } from "../marcas";
 import { ENDERECO_SITE, IconeWhatsApp, linkWhatsApp } from "./Compartilhar";
 import Conversa from "./Conversa";
+import BotaoLambe from "./BotaoLambe";
 import Disputa from "./Disputa";
 import LulaAqui from "./LulaAqui";
 
@@ -139,6 +140,7 @@ export default function Ficha({ regiao, candidatos, fase, exemplo, contagem, onC
               <p className="decomposicao">
                 {listaHumana(partes.map((p) => `${fmt(p.quantidade)} ${p.rotulo}`))}.
               </p>
+              {!exemplo && <BotaoLambe abstencao={v.abstencao} />}
               <LulaAqui votos={v} onde="local" />
               <Disputa votos={v} />
               {regiao.apuradas < regiao.urnas && (

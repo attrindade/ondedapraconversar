@@ -42,6 +42,7 @@ import { useLargo } from "../useLargo";
 import AvisoEmail from "./AvisoEmail";
 import Estrela from "./Estrela";
 import Mapa from "./Mapa";
+import BotaoLambe from "./BotaoLambe";
 import Rodape from "./Rodape";
 
 // A ficha, com as conversas de cada eleitorado, só baixa quando alguém abre um lugar.
@@ -394,6 +395,7 @@ export default function OndeVirarMais({ indice, exemplo, fase, ancora }: Props) 
                   ])}
                   .
                 </p>
+                <BotaoLambe abstencao={total.abstencao} />
                 <p className="pessoas">
                   <b>{fmt(total.eleitores)} pessoas</b> votam em {fmt(filtradas.length)}{" "}
                   {filtradas.length === 1 ? "lugar de votação" : "lugares de votação"}.

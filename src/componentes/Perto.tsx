@@ -38,6 +38,7 @@ import { contar } from "../marcas";
 import { useLargo } from "../useLargo";
 import Disputa from "./Disputa";
 import Estrela from "./Estrela";
+import BotaoLambe from "./BotaoLambe";
 import LulaAqui from "./LulaAqui";
 import Mapa from "./Mapa";
 import Rodape from "./Rodape";
@@ -236,6 +237,7 @@ export default function Perto({ indice, exemplo, fase, ancora }: Props) {
               <p className="decomposicao">
                 {listaHumana(pilhas(total, candidatos).map((p) => `${fmt(p.quantidade)} ${p.rotulo}`))}.
               </p>
+              {!exemplo && <BotaoLambe abstencao={total.abstencao} />}
               <p className="pessoas">
                 <b>{fmt(eleitores)} pessoas</b> votam a até 1 km daqui.{" "}
                 <span className="miudo">Os votos possíveis são {Math.round((total.ate / Math.max(eleitores, 1)) * 100)}% delas.</span>
