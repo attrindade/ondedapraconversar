@@ -79,6 +79,15 @@
       "acao": "Abrir o radar",
       "url": "https://radardavirada.pages.dev/",
       "exibir": "radardavirada.pages.dev"
+    },
+    {
+      "chave": "mamute-politico",
+      "tipo": "Site",
+      "titulo": "Mamute Político",
+      "descricao": "Memória de elefante pra lembrar e monitorar o político que você elegeu. Marque seus candidatos, saiba se foram eleitos e acompanhe, com dados abertos do Congresso Nacional.",
+      "acao": "Conhecer o Mamute",
+      "url": "https://mamutepolitico.com.br/",
+      "exibir": "mamutepolitico.com.br"
     }
   ]
 }
