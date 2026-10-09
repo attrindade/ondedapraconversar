@@ -25,6 +25,7 @@ import {
   fmt,
   linhaComoRegiao,
   listaHumana,
+  lulaNaFrenteOnde,
   nomeLocalOnde,
   ordenarOnde,
   valorOnde,
@@ -462,6 +463,12 @@ export default function OndeVirarMais({ indice, exemplo, fase, ancora }: Props) 
                           <span className="item-sub">
                             {fmt(l.abstencao)} não foram votar · {fmt(l.brancos)} em branco · {fmt(l.nulos)} {nulosTexto(l.nulos)}
                           </span>
+                          {metrica === "regraDeOuro" && (
+                            <span className="item-sub">
+                              Lula {fmt(l.lula)} × Flávio {fmt(l.flavio)}
+                              {!lulaNaFrenteOnde(l) && " · Flávio à frente: quem não foi votar fica fora da conta"}
+                            </span>
+                          )}
                         </span>
                         <span className="item-ate">
                           <small>{legenda}</small>
@@ -489,6 +496,12 @@ export default function OndeVirarMais({ indice, exemplo, fase, ancora }: Props) 
                   </p>
                 )}
                 <p>Ordem: primeiro onde mais gente ficou de fora, pelo que você escolheu acima. No empate, vem o lugar com mais eleitores.</p>
+                {metrica === "regraDeOuro" && (
+                  <p>
+                    Regra de ouro: branco e nulo contam em todo lugar, mas quem não foi votar só conta onde o Lula teve ao menos os
+                    votos do Flávio no 1º turno. Nos outros lugares, chamar para votar leva mais gente para o Flávio.
+                  </p>
+                )}
               </div>
             </>
           )}

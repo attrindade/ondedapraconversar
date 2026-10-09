@@ -262,14 +262,20 @@ export type LinhaOnde = {
   flavioDomina: boolean;
 };
 
-export type MetricaOnde = "todos" | "abstencao" | "brancos" | "nulos";
+export type MetricaOnde = "todos" | "abstencao" | "brancos" | "nulos" | "regraDeOuro";
 
 export const METRICAS_ONDE: { chave: MetricaOnde; rotulo: string; legenda: string }[] = [
   { chave: "todos", rotulo: "Tudo junto", legenda: "no total" },
   { chave: "abstencao", rotulo: "Abstenção", legenda: "não foram votar" },
   { chave: "brancos", rotulo: "Brancos", legenda: "em branco" },
   { chave: "nulos", rotulo: "Nulos", legenda: "nulos" },
+  { chave: "regraDeOuro", rotulo: "Regra de ouro", legenda: "pela regra" },
 ];
+
+/** Lula teve ao menos os votos do Flávio no 1º turno, o mesmo critério de disputa(). */
+export function lulaNaFrenteOnde(l: LinhaOnde): boolean {
+  return l.lula >= l.flavio;
+}
 
 export function valorOnde(l: LinhaOnde, metrica: MetricaOnde): number {
   switch (metrica) {
@@ -281,6 +287,11 @@ export function valorOnde(l: LinhaOnde, metrica: MetricaOnde): number {
       return l.nulos;
     case "todos":
       return l.brancos + l.nulos + l.abstencao;
+    case "regraDeOuro":
+      // Branco e nulo contam em qualquer lugar: convencer quem anulou ajuda o Lula onde for.
+      // Quem não foi votar só conta onde o Lula está na frente; nos outros lugares, chamar
+      // para votar leva mais gente para o Flávio.
+      return l.brancos + l.nulos + (lulaNaFrenteOnde(l) ? l.abstencao : 0);
     default: {
       const nunca: never = metrica;
       return nunca;

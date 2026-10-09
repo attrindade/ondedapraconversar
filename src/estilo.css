@@ -2511,6 +2511,9 @@ select.campo:disabled,
 .onde-controles .alternador {
   align-self: flex-start;
   max-width: 100%;
+  /* Cinco botões não cabem numa linha no celular: a faixa quebra e os cantos acompanham. */
+  flex-wrap: wrap;
+  border-radius: 22px;
 }
 
 .onde-controles .alternador button {
